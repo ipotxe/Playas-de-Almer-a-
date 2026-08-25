@@ -1,0 +1,6 @@
+{
+  "name": "Playas de Almería",
+  "description": "Guía completa de playas y calas de Almería y Cabo de Gata con previsión marítima de AEMET, mapas interactivos, snorkel, alerta de baño y viento de Levante y Poniente.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
