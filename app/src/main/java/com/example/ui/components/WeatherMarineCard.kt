@@ -70,7 +70,7 @@ fun WeatherMarineCard(
                             horizontalArrangement = Arrangement.spacedBy(6.dp)
                         ) {
                             Text(
-                                text = "AEMET ESTADO DEL MAR",
+                                text = "AEMET • ${forecast.day.title.uppercase()}",
                                 fontSize = 11.sp,
                                 fontWeight = FontWeight.Bold,
                                 color = AmberTertiary.copy(alpha = 0.9f),
@@ -83,7 +83,7 @@ fun WeatherMarineCard(
                                     .padding(horizontal = 6.dp, vertical = 2.dp)
                             ) {
                                 Text(
-                                    text = "EN DIRECTO",
+                                    text = if (forecast.day == com.example.data.model.ForecastDay.TODAY) "EN DIRECTO" else forecast.day.getDisplayDate(),
                                     fontSize = 9.sp,
                                     fontWeight = FontWeight.Bold,
                                     color = Color.White

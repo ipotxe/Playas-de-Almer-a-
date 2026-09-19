@@ -92,13 +92,50 @@ data class Beach(
     val mainPhotoUrl: String = ""
 )
 
+enum class ForecastDay(
+    val id: String,
+    val title: String,
+    val shortTitle: String,
+    val dayOffset: Int
+) {
+    TODAY("today", "Hoy", "Hoy", 0),
+    TOMORROW("tomorrow", "Mañana", "Mañana", 1),
+    DAY_AFTER_TOMORROW("day_after", "Pasado mañana", "Pasado mañ.", 2);
+
+    fun getDisplayDate(): String {
+        val cal = java.util.Calendar.getInstance()
+        cal.add(java.util.Calendar.DAY_OF_YEAR, dayOffset)
+        val dayOfMonth = cal.get(java.util.Calendar.DAY_OF_MONTH)
+        val monthStr = when (cal.get(java.util.Calendar.MONTH)) {
+            0 -> "Ene"
+            1 -> "Feb"
+            2 -> "Mar"
+            3 -> "Abr"
+            4 -> "May"
+            5 -> "Jun"
+            6 -> "Jul"
+            7 -> "Ago"
+            8 -> "Sep"
+            9 -> "Oct"
+            10 -> "Nov"
+            else -> "Dic"
+        }
+        return when (this) {
+            TODAY -> "Hoy ($dayOfMonth $monthStr)"
+            TOMORROW -> "Mañana ($dayOfMonth $monthStr)"
+            DAY_AFTER_TOMORROW -> "Pasado mañ. ($dayOfMonth $monthStr)"
+        }
+    }
+}
+
 data class BathingSafetyAlert(
     val flag: FlagColor,
     val summary: String,
     val isProtectedFromCurrentWind: Boolean,
     val waveHeightEstimated: Float,
     val snorkelQualityToday: String,
-    val windAdvice: String
+    val windAdvice: String,
+    val day: ForecastDay = ForecastDay.TODAY
 )
 
 data class MarineForecast(
@@ -115,5 +152,6 @@ data class MarineForecast(
     val weatherCondition: String,
     val tideStatus: String,
     val generalAdvice: String,
-    val lastUpdatedText: String
+    val lastUpdatedText: String,
+    val day: ForecastDay = ForecastDay.TODAY
 )

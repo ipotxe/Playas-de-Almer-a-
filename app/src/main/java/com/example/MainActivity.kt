@@ -130,6 +130,7 @@ fun BeachApp(viewModel: BeachViewModel) {
                         0 -> ExploreScreen(
                             uiState = uiState,
                             getBathingAlert = { viewModel.getBathingAlertForBeach(it) },
+                            onDaySelected = { viewModel.selectForecastDay(it) },
                             onSearchQueryChange = { viewModel.updateSearchQuery(it) },
                             onZoneSelected = { viewModel.selectZone(it) },
                             onToggleTopSnorkel = { viewModel.toggleTopSnorkelFilter() },
@@ -156,6 +157,7 @@ fun BeachApp(viewModel: BeachViewModel) {
                         1 -> InteractiveMapScreen(
                             uiState = uiState,
                             getBathingAlert = { viewModel.getBathingAlertForBeach(it) },
+                            onDaySelected = { viewModel.selectForecastDay(it) },
                             onBeachSelected = { viewModel.selectBeach(it) },
                             onFavoriteToggle = { viewModel.toggleFavorite(it) },
                             onZoneFilterChanged = { viewModel.selectZone(it) }
@@ -164,6 +166,7 @@ fun BeachApp(viewModel: BeachViewModel) {
                         2 -> MarineForecastScreen(
                             uiState = uiState,
                             getBathingAlert = { viewModel.getBathingAlertForBeach(it) },
+                            onDaySelected = { viewModel.selectForecastDay(it) },
                             onBeachClick = { viewModel.selectBeach(it) },
                             onFavoriteToggle = { viewModel.toggleFavorite(it) },
                             onRefresh = { viewModel.refreshAllMarineForecasts() },

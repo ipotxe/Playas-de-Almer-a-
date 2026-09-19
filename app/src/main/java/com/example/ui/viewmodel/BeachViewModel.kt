@@ -40,6 +40,8 @@ data class BeachUiState(
     val filteredBeaches: List<Beach> = emptyList(),
     val favorites: List<Beach> = emptyList(),
     val userBeachData: Map<String, FavoriteBeachEntity> = emptyMap(),
+    val selectedForecastDay: ForecastDay = ForecastDay.TODAY,
+    val multiDayMarineForecasts: Map<Zone, Map<ForecastDay, MarineForecast>> = emptyMap(),
     val marineForecasts: Map<Zone, MarineForecast> = emptyMap(),
     val isLoadingForecast: Boolean = false,
     val activeWindAlert: WindSafetyAlert? = null,
@@ -61,10 +63,14 @@ class BeachViewModel(application: Application) : AndroidViewModel(application) {
     init {
         val db = BeachDatabase.getDatabase(application)
         val marineService = MarineWeatherService()
-        repository = BeachRepository(db.beachDao(), marineService)
+        repository = BeachRepository(db.beachDao(), marineService, db.beachInfoDao())
 
         val beaches = repository.getAllBeaches()
         _uiState.update { it.copy(allBeaches = beaches) }
+
+        viewModelScope.launch {
+            repository.seedBeachesIfEmpty()
+        }
 
         observeFavorites()
         refreshAllMarineForecasts()
@@ -89,16 +95,22 @@ class BeachViewModel(application: Application) : AndroidViewModel(application) {
     fun refreshAllMarineForecasts() {
         viewModelScope.launch {
             _uiState.update { it.copy(isLoadingForecast = true) }
-            val forecasts = mutableMapOf<Zone, MarineForecast>()
+            val multiDayMap = mutableMapOf<Zone, Map<ForecastDay, MarineForecast>>()
             for (zone in Zone.values()) {
-                forecasts[zone] = repository.fetchMarineForecast(zone)
+                multiDayMap[zone] = repository.fetchMultiDayMarineForecast(zone)
+            }
+            val activeDay = _uiState.value.selectedForecastDay
+            val activeDayForecasts = Zone.values().associateWith { zone ->
+                multiDayMap[zone]?.get(activeDay)
+                    ?: MarineWeatherService().generateFallbackForecast(zone, activeDay)
             }
             val beaches = _uiState.value.allBeaches
-            val alert = WindSafetyAlertHelper.analyzeForecastForSwimmingAlert(forecasts, beaches)
+            val alert = WindSafetyAlertHelper.analyzeForecastForSwimmingAlert(activeDayForecasts, beaches)
 
             _uiState.update {
                 it.copy(
-                    marineForecasts = forecasts,
+                    multiDayMarineForecasts = multiDayMap,
+                    marineForecasts = activeDayForecasts,
                     isLoadingForecast = false,
                     activeWindAlert = alert,
                     isWindAlertDismissed = false
@@ -106,6 +118,30 @@ class BeachViewModel(application: Application) : AndroidViewModel(application) {
             }
             applyFilters()
         }
+    }
+
+    fun selectForecastDay(day: ForecastDay) {
+        val multiDay = _uiState.value.multiDayMarineForecasts
+        val updatedDayForecasts = Zone.values().associateWith { zone ->
+            multiDay[zone]?.get(day) ?: MarineWeatherService().generateFallbackForecast(zone, day)
+        }
+        val beaches = _uiState.value.allBeaches
+        val alert = WindSafetyAlertHelper.analyzeForecastForSwimmingAlert(updatedDayForecasts, beaches)
+
+        _uiState.update {
+            it.copy(
+                selectedForecastDay = day,
+                marineForecasts = updatedDayForecasts,
+                activeWindAlert = alert,
+                isWindAlertDismissed = false
+            )
+        }
+        applyFilters()
+    }
+
+    fun getForecastForZoneAndDay(zone: Zone, day: ForecastDay): MarineForecast {
+        return _uiState.value.multiDayMarineForecasts[zone]?.get(day)
+            ?: MarineWeatherService().generateFallbackForecast(zone, day)
     }
 
     fun dismissWindAlert() {
@@ -264,9 +300,11 @@ class BeachViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun getBathingAlertForBeach(beach: Beach): BathingSafetyAlert {
-        val forecast = _uiState.value.marineForecasts[beach.zone]
-            ?: MarineWeatherService().generateFallbackForecast(beach.zone)
+    fun getBathingAlertForBeach(beach: Beach, day: ForecastDay? = null): BathingSafetyAlert {
+        val targetDay = day ?: _uiState.value.selectedForecastDay
+        val forecast = _uiState.value.multiDayMarineForecasts[beach.zone]?.get(targetDay)
+            ?: _uiState.value.marineForecasts[beach.zone]
+            ?: MarineWeatherService().generateFallbackForecast(beach.zone, targetDay)
         return repository.calculateBathingSafety(beach, forecast)
     }
 

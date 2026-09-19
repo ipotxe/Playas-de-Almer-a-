@@ -32,11 +32,11 @@ object BeachDataProvider {
             marineLifeHighlights = listOf("Sargos reales", "Meros jóvenes", "Castañuelas", "Doncellas", "Pulpos en grietas"),
             waterSports = listOf(WaterSport.SNORKEL, WaterSport.DIVING, WaterSport.SWIMMING),
             photos = listOf(
-                BeachPhoto("Panorámica de los Muertos", "Vista desde el sendero de bajada con el azul turquesa característico", R.drawable.almeria_cabo_gata_1787596760956),
+                BeachPhoto("Panorámica de los Muertos", "Vista desde el sendero de bajada con el azul turquesa característico", R.drawable.img_los_muertos_1789498969198),
                 BeachPhoto("Fondos Marinos", "Aguas cristalinas sobre roca volcánica", R.drawable.almeria_snorkel_1787596773919),
                 BeachPhoto("Orilla virgen", "Grava fina pulida por el oleaje mediterráneo", R.drawable.almeria_monsul_dune_1787596792910)
             ),
-            mainPhotoResId = R.drawable.almeria_cabo_gata_1787596760956
+            mainPhotoResId = R.drawable.img_los_muertos_1789498969198
         ),
 
         Beach(
@@ -95,10 +95,10 @@ object BeachDataProvider {
             marineLifeHighlights = listOf("Herreras", "Doradas", "Bancos de salemas", "Erizos de mar", "Pulpos"),
             waterSports = listOf(WaterSport.PADDLE_SURF, WaterSport.KAYAK, WaterSport.SNORKEL, WaterSport.WINDSURF_KITE),
             photos = listOf(
-                BeachPhoto("Bahía de los Genoveses", "Vista panorámica de la bahía virgen", R.drawable.almeria_cabo_gata_1787596760956),
+                BeachPhoto("Bahía de los Genoveses", "Vista panorámica de la bahía virgen", R.drawable.img_playa_genoveses_1789499231209),
                 BeachPhoto("Vida submarina", "Fauna marina sobre posidonia", R.drawable.almeria_snorkel_1787596773919)
             ),
-            mainPhotoResId = R.drawable.almeria_cabo_gata_1787596760956
+            mainPhotoResId = R.drawable.img_playa_genoveses_1789499231209
         ),
 
         Beach(
@@ -126,10 +126,10 @@ object BeachDataProvider {
             marineLifeHighlights = listOf("Meros", "Tordo multicolor", "Morenas", "Fredis (pez verde)", "Nudibranquios"),
             waterSports = listOf(WaterSport.SNORKEL, WaterSport.KAYAK, WaterSport.PADDLE_SURF),
             photos = listOf(
-                BeachPhoto("Aguas Turquesas", "Duna fósil blanca y transparencia total", R.drawable.almeria_snorkel_1787596773919),
-                BeachPhoto("Acantilados esculpidos", "Geometría volcánica única", R.drawable.almeria_cabo_gata_1787596760956)
+                BeachPhoto("Aguas Turquesas y Acantilados Blancos", "Duna fósil blanca y transparencia total", R.drawable.img_cala_enmedio_1789499241829),
+                BeachPhoto("Fondos Marinos", "Praderas de posidonia", R.drawable.almeria_snorkel_1787596773919)
             ),
-            mainPhotoResId = R.drawable.almeria_snorkel_1787596773919
+            mainPhotoResId = R.drawable.img_cala_enmedio_1789499241829
         ),
 
         Beach(
@@ -338,9 +338,9 @@ object BeachDataProvider {
             marineLifeHighlights = listOf("Peces roca", "Babosas marinas", "Sargos", "Crías de lubina", "Sepias"),
             waterSports = listOf(WaterSport.SNORKEL, WaterSport.PADDLE_SURF, WaterSport.KAYAK),
             photos = listOf(
-                BeachPhoto("Cala Cocedores", "Cuevas en la arenisca y mar calmo", R.drawable.almeria_snorkel_1787596773919)
+                BeachPhoto("Cala Cocedores", "Cuevas en la arenisca y mar calmo", R.drawable.img_cocedores_1789498980946)
             ),
-            mainPhotoResId = R.drawable.almeria_snorkel_1787596773919
+            mainPhotoResId = R.drawable.img_cocedores_1789498980946
         ),
 
         Beach(
@@ -549,9 +549,9 @@ object BeachDataProvider {
             marineLifeHighlights = listOf("Sepias", "Mubles", "Herreras", "Doradas"),
             waterSports = listOf(WaterSport.WINDSURF_KITE, WaterSport.PADDLE_SURF, WaterSport.SWIMMING),
             photos = listOf(
-                BeachPhoto("Iglesia de Las Salinas", "Icono arquitectónico frente al mar", R.drawable.almeria_cabo_gata_1787596760956)
+                BeachPhoto("Iglesia de Las Salinas", "Icono arquitectónico frente al mar", R.drawable.img_las_salinas_1789499254061)
             ),
-            mainPhotoResId = R.drawable.almeria_cabo_gata_1787596760956
+            mainPhotoResId = R.drawable.img_las_salinas_1789499254061
         ),
 
         // ================= PONIENTE ALMERIENSE =================
@@ -611,6 +611,790 @@ object BeachDataProvider {
             waterSports = listOf(WaterSport.WINDSURF_KITE, WaterSport.PADDLE_SURF, WaterSport.SWIMMING),
             photos = listOf(
                 BeachPhoto("Playa Serena", "Vistas abiertas hacia Punta Entinas", R.drawable.almeria_cabo_gata_1787596760956)
+            ),
+            mainPhotoResId = R.drawable.almeria_cabo_gata_1787596760956
+        ),
+
+        // ================= CABO DE GATA - NÍJAR (NUEVAS ADICIONES) =================
+        Beach(
+            id = "playa_penon_blanco",
+            name = "Playa del Peñón Blanco",
+            zone = Zone.CABO_DE_GATA,
+            municipality = "Níjar (La Isleta del Moro)",
+            summary = "Pintoresca playa a los pies de los cerros volcánicos de Los Frailes y el Peñón del Pirata.",
+            description = "La playa principal del emblemático pueblo marinero de La Isleta del Moro. Combina arena dorada y lenguas de roca volcánica oscura con una atmósfera pesquera tradicional inigualable.",
+            sandType = "Arena media dorada y rocas volcánicas",
+            lengthMeters = 400,
+            widthMeters = 30,
+            orientation = Orientation.SOUTH_EAST,
+            latitude = 36.8142,
+            longitude = -2.0503,
+            isNaturalPark = true,
+            isNudistFriendly = false,
+            isPetFriendly = false,
+            isFamilyFriendly = true,
+            accessDifficulty = AccessDifficulty.EASY,
+            parkingInfo = "Aparcamiento a la entrada de La Isleta del Moro, bajada corta a pie por pasarela.",
+            services = BeachServices(hasLifeguard = true, hasChiringuito = true, hasShowers = true, isVirginCove = false),
+            snorkelRating = 4.8f,
+            snorkelDescription = "Praderas exuberantes de Posidonia Oceánica alrededor del Peñón. Fondos cristalinos con meros jóvenes, bancos de salemas y pulpos.",
+            marineLifeHighlights = listOf("Meros", "Sargos comunes", "Bancos de salemas", "Doncellas", "Pulpos"),
+            waterSports = listOf(WaterSport.SNORKEL, WaterSport.DIVING, WaterSport.KAYAK),
+            photos = listOf(
+                BeachPhoto("Peñón Blanco", "Vista hacia los cerros de Los Frailes", R.drawable.almeria_cabo_gata_1787596760956)
+            ),
+            mainPhotoResId = R.drawable.almeria_cabo_gata_1787596760956
+        ),
+
+        Beach(
+            id = "playa_los_escullos",
+            name = "Playa del Arco (Los Escullos)",
+            zone = Zone.CABO_DE_GATA,
+            municipality = "Níjar (Los Escullos)",
+            summary = "Famosa por su imponente duna fósil oolítica erosionada y el Castillo de San Felipe.",
+            description = "Una de las postales geológicas más reconocibles del Parque Natural. Sus dunas fósiles esculpidas por el oleaje crean plataformas naturales sobre el mar que contrastan con los acantilados rojizos.",
+            sandType = "Arena fina dorada y duna fósil",
+            lengthMeters = 350,
+            widthMeters = 40,
+            orientation = Orientation.EAST,
+            latitude = 36.8028,
+            longitude = -2.0625,
+            isNaturalPark = true,
+            isNudistFriendly = true,
+            isPetFriendly = false,
+            isFamilyFriendly = true,
+            accessDifficulty = AccessDifficulty.EASY,
+            parkingInfo = "Aparcamiento amplio de tierra junto a la Batería defensiva de San Felipe.",
+            services = BeachServices(hasChiringuito = true, isVirginCove = true),
+            snorkelRating = 4.7f,
+            snorkelDescription = "Fascinantes cañones y losas sumergidas en la base de la duna fósil. Abundancia de lábridos de vivos colores y estrellas de mar.",
+            marineLifeHighlights = listOf("Fredis (pez verde)", "Doncellas", "Sargos reales", "Estrellas rojas de mar"),
+            waterSports = listOf(WaterSport.SNORKEL, WaterSport.DIVING, WaterSport.KAYAK),
+            photos = listOf(
+                BeachPhoto("Duna fósil de Los Escullos", "Escultura natural sobre el mar", R.drawable.almeria_monsul_dune_1787596792910)
+            ),
+            mainPhotoResId = R.drawable.almeria_monsul_dune_1787596792910
+        ),
+
+        Beach(
+            id = "cala_media_luna",
+            name = "Cala de la Media Luna",
+            zone = Zone.CABO_DE_GATA,
+            municipality = "Níjar (San José)",
+            summary = "Hermosa media luna virgen resguardada entre acantilados volcánicos junto a Mónsul.",
+            description = "Ensenada solitaria con forma perfecta de medialuna. Su orientación la resguarda del viento de Levante, convirtiéndola en un remanso de paz cuando el este sopla en Cabo de Gata.",
+            sandType = "Arena fina volcánica y grava suave",
+            lengthMeters = 180,
+            widthMeters = 25,
+            orientation = Orientation.SOUTH_WEST,
+            latitude = 36.7269,
+            longitude = -2.1528,
+            isNaturalPark = true,
+            isNudistFriendly = true,
+            isPetFriendly = false,
+            isFamilyFriendly = true,
+            accessDifficulty = AccessDifficulty.EASY,
+            parkingInfo = "Pista de tierra de las playas de San José (acceso regulado en verano o autobús lanzadera).",
+            services = BeachServices(isVirginCove = true),
+            snorkelRating = 4.6f,
+            snorkelDescription = "Fondos de arena limpios y lenguas rocosas en los salientes con visibilidad excepcional.",
+            marineLifeHighlights = listOf("Rayas", "Lenguados", "Peces aguja", "Obladas"),
+            waterSports = listOf(WaterSport.SNORKEL, WaterSport.PADDLE_SURF, WaterSport.SWIMMING),
+            photos = listOf(
+                BeachPhoto("Cala de la Media Luna", "Forma de herradura y aguas calmas", R.drawable.almeria_monsul_dune_1787596792910)
+            ),
+            mainPhotoResId = R.drawable.almeria_monsul_dune_1787596792910
+        ),
+
+        Beach(
+            id = "cala_carbon",
+            name = "Cala del Carbón",
+            zone = Zone.CABO_DE_GATA,
+            municipality = "Níjar (San José)",
+            summary = "Última cala virgen accesible en vehículo antes del cabo de Vela Blanca.",
+            description = "Encajada al final de la pista de tierra de San José, esta cala salvaje destaca por su tranquilidad, sus cantos rodados pulidos por el mar y su aislamiento casi total del turismo de masas.",
+            sandType = "Cantos rodados y arena gruesa",
+            lengthMeters = 150,
+            widthMeters = 18,
+            orientation = Orientation.SOUTH_WEST,
+            latitude = 36.7231,
+            longitude = -2.1583,
+            isNaturalPark = true,
+            isNudistFriendly = true,
+            isPetFriendly = false,
+            isFamilyFriendly = false,
+            accessDifficulty = AccessDifficulty.MODERATE,
+            parkingInfo = "Fin de la pista de San José junto a la barrera de Vela Blanca. Bajada por senda natural.",
+            services = BeachServices(isVirginCove = true),
+            snorkelRating = 4.8f,
+            snorkelDescription = "Fondos vírgenes de basalto oscuro y paredes submarinas de gran profundidad.",
+            marineLifeHighlights = listOf("Meros", "Morenas", "Cabrillas", "Erizos negros"),
+            waterSports = listOf(WaterSport.SNORKEL, WaterSport.DIVING, WaterSport.KAYAK),
+            photos = listOf(
+                BeachPhoto("Cala del Carbón", "Naturaleza volcánica y soledad", R.drawable.almeria_snorkel_1787596773919)
+            ),
+            mainPhotoResId = R.drawable.almeria_snorkel_1787596773919
+        ),
+
+        Beach(
+            id = "cala_higuera",
+            name = "Cala Higuera",
+            zone = Zone.CABO_DE_GATA,
+            municipality = "Níjar (San José)",
+            summary = "Santuario submarino y meca del buceo a los pies de la torre vigía de Cala Higuera.",
+            description = "Cala de piedras y cantos rodados ubicada al este del núcleo de San José. Su fondo marino es célebre entre los centros de buceo por sus cañones volcánicos y praderas milenarias de posidonia.",
+            sandType = "Grava y cantos rodados",
+            lengthMeters = 220,
+            widthMeters = 15,
+            orientation = Orientation.EAST,
+            latitude = 36.7683,
+            longitude = -2.1008,
+            isNaturalPark = true,
+            isNudistFriendly = true,
+            isPetFriendly = false,
+            isFamilyFriendly = false,
+            accessDifficulty = AccessDifficulty.EASY,
+            parkingInfo = "Pista accesible desde el pueblo de San José. Parking habilitado en la cala.",
+            services = BeachServices(hasChiringuito = true, isVirginCove = true),
+            snorkelRating = 4.9f,
+            snorkelDescription = "Uno de los fondos más ricos de Almería. Aguas de transparencia oceánica con bancos de espetones, meros y nudibranquios.",
+            marineLifeHighlights = listOf("Espetones (barracudas)", "Meros", "Morenas", "Nudibranquios", "Fredis"),
+            waterSports = listOf(WaterSport.DIVING, WaterSport.SNORKEL, WaterSport.KAYAK),
+            photos = listOf(
+                BeachPhoto("Fondos de Cala Higuera", "Transparencia y biodiversidad marina", R.drawable.almeria_snorkel_1787596773919)
+            ),
+            mainPhotoResId = R.drawable.almeria_snorkel_1787596773919
+        ),
+
+        Beach(
+            id = "arrecife_sirenas",
+            name = "Arrecife de las Sirenas / Cala del Faro",
+            zone = Zone.CABO_DE_GATA,
+            municipality = "Níjar (Cabo de Gata)",
+            summary = "Monumento natural geológico con las chimeneas volcánicas más célebres de Andalucía.",
+            description = "Frente al Faro de Cabo de Gata emergen estas antiguas chimeneas volcánicas submarinas que los marineros asociaban al canto de las sirenas (antiguas focas monje). Paisaje de sobrecogedora belleza salvaje.",
+            sandType = "Rocas volcánicas y grava oscura",
+            lengthMeters = 100,
+            widthMeters = 10,
+            orientation = Orientation.SOUTH,
+            latitude = 36.7208,
+            longitude = -2.1917,
+            isNaturalPark = true,
+            isNudistFriendly = true,
+            isPetFriendly = false,
+            isFamilyFriendly = false,
+            accessDifficulty = AccessDifficulty.HARD,
+            parkingInfo = "Aparcamiento del Mirador de las Sirenas y Faro de Cabo de Gata. Descenso empinado por senda.",
+            services = BeachServices(isVirginCove = true),
+            snorkelRating = 4.9f,
+            snorkelDescription = "Inmersión inolvidable entre arcos y pilares de basalto sumergidos. Refugio de corales, grandes peces de roca y posidonia.",
+            marineLifeHighlights = listOf("Corvinas", "Meros", "Sargos reales", "Doncellas", "Pulpos gigantes"),
+            waterSports = listOf(WaterSport.SNORKEL, WaterSport.DIVING, WaterSport.KAYAK),
+            photos = listOf(
+                BeachPhoto("Arrecife de las Sirenas", "Agujas volcánicas emergiendo del mar", R.drawable.almeria_cabo_gata_1787596760956)
+            ),
+            mainPhotoResId = R.drawable.almeria_cabo_gata_1787596760956
+        ),
+
+        Beach(
+            id = "playa_fabriquilla",
+            name = "Playa de La Fabriquilla",
+            zone = Zone.CABO_DE_GATA,
+            municipality = "Almería (La Fabriquilla)",
+            summary = "Aguas calmas y cristalinas de arena blanca protegidas por la masa montañosa del Cabo.",
+            description = "Ubicada donde terminan las Salinas y comienza la subida al Faro. Cuando sopla viento de Levante, esta playa queda completamente en calma y se convierte en una piscina natural perfecta.",
+            sandType = "Grava fina blanca y arena dorada",
+            lengthMeters = 600,
+            widthMeters = 30,
+            orientation = Orientation.SOUTH_WEST,
+            latitude = 36.7458,
+            longitude = -2.2042,
+            isNaturalPark = true,
+            isNudistFriendly = false,
+            isPetFriendly = false,
+            isFamilyFriendly = true,
+            accessDifficulty = AccessDifficulty.EASY,
+            parkingInfo = "Aparcamiento a lo largo de la calle del pueblo marinero de La Fabriquilla.",
+            services = BeachServices(hasLifeguard = true, hasChiringuito = true, hasShowers = true, isVirginCove = false),
+            snorkelRating = 4.5f,
+            snorkelDescription = "Fondo mixto con losas de piedra caliza y pradera marina a pocos metros de la orilla.",
+            marineLifeHighlights = listOf("Doradas", "Herreras", "Pez aguja", "Sepias", "Doncellas"),
+            waterSports = listOf(WaterSport.KAYAK, WaterSport.PADDLE_SURF, WaterSport.SNORKEL, WaterSport.SWIMMING),
+            photos = listOf(
+                BeachPhoto("La Fabriquilla", "Aguas cristalinas y casas de pescadores", R.drawable.img_las_salinas_1789499254061)
+            ),
+            mainPhotoResId = R.drawable.img_las_salinas_1789499254061
+        ),
+
+        Beach(
+            id = "playa_san_jose",
+            name = "Playa de San José",
+            zone = Zone.CABO_DE_GATA,
+            municipality = "Níjar (San José)",
+            summary = "Playa principal del pueblo de San José, familiar y con vistas al puerto deportivo.",
+            description = "Resguardada en una amplia bahía entre el cerro Enmedio y la punta de San José. Ofrece todas las comodidades urbanas sin perder la belleza natural del entorno protegido.",
+            sandType = "Arena fina dorada",
+            lengthMeters = 850,
+            widthMeters = 35,
+            orientation = Orientation.EAST,
+            latitude = 36.7600,
+            longitude = -2.1083,
+            isNaturalPark = true,
+            isNudistFriendly = false,
+            isPetFriendly = false,
+            isFamilyFriendly = true,
+            accessDifficulty = AccessDifficulty.EASY,
+            parkingInfo = "Aparcamientos señalizados en el casco urbano de San José.",
+            services = BeachServices(hasLifeguard = true, hasChiringuito = true, hasShowers = true, hasToilets = true, hasDisabledAccess = true, hasSunbedRental = true, isVirginCove = false),
+            snorkelRating = 4.0f,
+            snorkelDescription = "Los salientes rocosos del puerto y la punta este albergan vida marina muy accesible para iniciación.",
+            marineLifeHighlights = listOf("Sargos", "Obladas", "Salmonetes", "Crías de lubina"),
+            waterSports = listOf(WaterSport.KAYAK, WaterSport.PADDLE_SURF, WaterSport.SWIMMING),
+            photos = listOf(
+                BeachPhoto("Bahía de San José", "Playa urbana y puerto deportivo", R.drawable.almeria_cabo_gata_1787596760956)
+            ),
+            mainPhotoResId = R.drawable.almeria_cabo_gata_1787596760956
+        ),
+
+        Beach(
+            id = "cala_barronal",
+            name = "Playa del Barronal",
+            zone = Zone.CABO_DE_GATA,
+            municipality = "Níjar (San José)",
+            summary = "Paraíso virgen naturista rodeado de espectaculares columnas de basalto volcánico.",
+            description = "Situada entre Genoveses y Mónsul. Su acceso solo a pie por senderos de dunas preserva un ambiente salvaje, tranquilo y de comunión absoluta con la naturaleza virgen.",
+            sandType = "Arena fina oscura y dorada",
+            lengthMeters = 800,
+            widthMeters = 40,
+            orientation = Orientation.SOUTH,
+            latitude = 36.7367,
+            longitude = -2.1389,
+            isNaturalPark = true,
+            isNudistFriendly = true,
+            isPetFriendly = false,
+            isFamilyFriendly = false,
+            accessDifficulty = AccessDifficulty.MODERATE,
+            parkingInfo = "Aparcamiento del Barronal en la pista de San José. Caminata de 15 minutos entre dunas y palmitos.",
+            services = BeachServices(isVirginCove = true),
+            snorkelRating = 4.7f,
+            snorkelDescription = "Arrecifes volcánicos sumergidos que crean canales submarinos espectaculares llenos de biodiversidad.",
+            marineLifeHighlights = listOf("Meros jóvenes", "Doncellas", "Peces loro mediterráneo", "Pulpos"),
+            waterSports = listOf(WaterSport.SNORKEL, WaterSport.PADDLE_SURF, WaterSport.SWIMMING),
+            photos = listOf(
+                BeachPhoto("El Barronal", "Formaciones de basalto y soledad", R.drawable.almeria_monsul_dune_1787596792910)
+            ),
+            mainPhotoResId = R.drawable.almeria_monsul_dune_1787596792910
+        ),
+
+        // ================= LEVANTE ALMERIENSE (NUEVAS ADICIONES) =================
+        Beach(
+            id = "playa_mar_rabiosa",
+            name = "Playa Mar Rabiosa",
+            zone = Zone.LEVANTE_ALMERIENSE,
+            municipality = "Pulpí (San Juan de los Terreros)",
+            summary = "Cala de ensueño separada de Mar Serena por el icónico Peñón de San Juan.",
+            description = "Famosa por sus aguas de postal turquesa y el istmo rocoso que la separa de Mar Serena. Su fondo somero y transparente la convierte en un acuario natural ideal para todas las edades.",
+            sandType = "Arena fina dorada",
+            lengthMeters = 250,
+            widthMeters = 25,
+            orientation = Orientation.SOUTH_EAST,
+            latitude = 37.3583,
+            longitude = -1.6583,
+            isNaturalPark = false,
+            isNudistFriendly = false,
+            isPetFriendly = false,
+            isFamilyFriendly = true,
+            accessDifficulty = AccessDifficulty.EASY,
+            parkingInfo = "Aparcamientos en el paseo marítimo de San Juan de los Terreros.",
+            services = BeachServices(hasLifeguard = true, hasChiringuito = true, hasShowers = true, hasToilets = true, isVirginCove = false),
+            snorkelRating = 4.5f,
+            snorkelDescription = "Bordear el Peñón de Terreros revela fondos de roca con cavidades repletas de pequeños peces litorales.",
+            marineLifeHighlights = listOf("Doncellas", "Sargos", "Babosas de mar", "Castañuelas"),
+            waterSports = listOf(WaterSport.SNORKEL, WaterSport.PADDLE_SURF, WaterSport.SWIMMING),
+            photos = listOf(
+                BeachPhoto("Mar Rabiosa y Peñón", "El istmo de Terreros y aguas turquesas", R.drawable.img_cocedores_1789498980946)
+            ),
+            mainPhotoResId = R.drawable.img_cocedores_1789498980946
+        ),
+
+        Beach(
+            id = "playa_las_escobetas",
+            name = "Playa de Garrucha (Las Escobetas)",
+            zone = Zone.LEVANTE_ALMERIENSE,
+            municipality = "Garrucha",
+            summary = "Gran playa urbana de arena dorada junto al puerto pesquero de la famosa Gamba Roja de Garrucha.",
+            description = "Acompañada por un paseo marítimo de mármol blanco de más de un kilómetro. Aguas limpias y tranquilas con todos los servicios y una oferta gastronómica marinera insuperable.",
+            sandType = "Arena media dorada",
+            lengthMeters = 1100,
+            widthMeters = 35,
+            orientation = Orientation.EAST,
+            latitude = 37.1808,
+            longitude = -1.8214,
+            isNaturalPark = false,
+            isNudistFriendly = false,
+            isPetFriendly = false,
+            isFamilyFriendly = true,
+            accessDifficulty = AccessDifficulty.EASY,
+            parkingInfo = "Plazas a lo largo del Malecón y explanada del puerto pesquero.",
+            services = BeachServices(hasLifeguard = true, hasChiringuito = true, hasShowers = true, hasToilets = true, hasDisabledAccess = true, hasSunbedRental = true, isVirginCove = false),
+            snorkelRating = 3.7f,
+            snorkelDescription = "Los espigones portuarios y arrecifes artificiales albergan bancos de lisas y doradas.",
+            marineLifeHighlights = listOf("Lisas", "Doradas", "Sargos", "Cangrejos de roca"),
+            waterSports = listOf(WaterSport.PADDLE_SURF, WaterSport.SWIMMING, WaterSport.KAYAK),
+            photos = listOf(
+                BeachPhoto("Playa de Garrucha", "Malecón de mármol y arena dorada", R.drawable.almeria_cabo_gata_1787596760956)
+            ),
+            mainPhotoResId = R.drawable.almeria_cabo_gata_1787596760956
+        ),
+
+        Beach(
+            id = "playa_macenas",
+            name = "Playa de Macenas",
+            zone = Zone.LEVANTE_ALMERIENSE,
+            municipality = "Mojácar",
+            summary = "Playa virgen y bravía custodiada por la histórica Torre de Macenas del siglo XVIII.",
+            description = "Marca el inicio de la costa más agreste y solitaria de Mojácar. Paisaje salvaje donde las faldas de la Sierra de Cabrera se hunden en el mar, ofreciendo paz y tranquilidad.",
+            sandType = "Arena grisácea y grava volcánica",
+            lengthMeters = 1420,
+            widthMeters = 20,
+            orientation = Orientation.EAST,
+            latitude = 37.0983,
+            longitude = -1.8417,
+            isNaturalPark = false,
+            isNudistFriendly = true,
+            isPetFriendly = false,
+            isFamilyFriendly = false,
+            accessDifficulty = AccessDifficulty.EASY,
+            parkingInfo = "Aparcamiento habilitado junto al pie de la Torre de Macenas.",
+            services = BeachServices(hasChiringuito = true, isVirginCove = true),
+            snorkelRating = 4.4f,
+            snorkelDescription = "Fondos de losas rocosas y posidonia con alta visibilidad y presencia de pulpos.",
+            marineLifeHighlights = listOf("Pulpos", "Meros pequeños", "Doncellas", "Sargos picudos"),
+            waterSports = listOf(WaterSport.SNORKEL, WaterSport.KAYAK, WaterSport.DIVING),
+            photos = listOf(
+                BeachPhoto("Torre de Macenas", "Fortaleza histórica frente a la costa salvaje", R.drawable.almeria_monsul_dune_1787596792910)
+            ),
+            mainPhotoResId = R.drawable.almeria_monsul_dune_1787596792910
+        ),
+
+        Beach(
+            id = "playa_villaricos",
+            name = "Playa de Villaricos (Cala Verde)",
+            zone = Zone.LEVANTE_ALMERIENSE,
+            municipality = "Cuevas del Almanzora (Villaricos)",
+            summary = "Pintoresca cala de arena oscura y escoria de hierro con un paraíso submarino de cuevas.",
+            description = "Situada en el pueblo pesquero de Villaricos. Su peculiar tono oscuro proviene de su pasado minero de fundición de hierro. Es famosa por sus cuevas submarinas de 'La Catedral' y sus fondos volcánicos.",
+            sandType = "Arena oscura y grava mineral",
+            lengthMeters = 230,
+            widthMeters = 20,
+            orientation = Orientation.SOUTH_EAST,
+            latitude = 37.2472,
+            longitude = -1.7722,
+            isNaturalPark = false,
+            isNudistFriendly = false,
+            isPetFriendly = false,
+            isFamilyFriendly = true,
+            accessDifficulty = AccessDifficulty.EASY,
+            parkingInfo = "Aparcamiento en las calles de Villaricos y paseo del puerto de La Balsa.",
+            services = BeachServices(hasLifeguard = true, hasChiringuito = true, hasShowers = true, isVirginCove = false),
+            snorkelRating = 4.6f,
+            snorkelDescription = "Fondos de origen volcánico y cuevas submarinas que albergan una fabulosa biodiversidad marina.",
+            marineLifeHighlights = listOf("Meros", "Morenas", "Congrios en grietas", "Doncellas", "Estrellas de mar"),
+            waterSports = listOf(WaterSport.DIVING, WaterSport.SNORKEL, WaterSport.KAYAK),
+            photos = listOf(
+                BeachPhoto("Cala Verde en Villaricos", "Costa oscura y tradición marinera", R.drawable.almeria_snorkel_1787596773919)
+            ),
+            mainPhotoResId = R.drawable.almeria_snorkel_1787596773919
+        ),
+
+        Beach(
+            id = "playa_las_marinicas",
+            name = "Playa de las Marinicas",
+            zone = Zone.LEVANTE_ALMERIENSE,
+            municipality = "Carboneras",
+            summary = "Playa de aguas calmadas al abrigo del espigón portuario, idónea para familias y niños.",
+            description = "Ubicada entre el puerto pesquero y el puerto comercial de Carboneras. El dique actúa como rompeolas natural, haciendo que sus aguas permanezcan como una piscina casi todo el año.",
+            sandType = "Arena fina dorada",
+            lengthMeters = 1450,
+            widthMeters = 40,
+            orientation = Orientation.EAST,
+            latitude = 36.9931,
+            longitude = -1.8944,
+            isNaturalPark = false,
+            isNudistFriendly = false,
+            isPetFriendly = false,
+            isFamilyFriendly = true,
+            accessDifficulty = AccessDifficulty.EASY,
+            parkingInfo = "Amplias zonas de estacionamiento en el paseo marítimo de Carboneras.",
+            services = BeachServices(hasLifeguard = true, hasChiringuito = true, hasShowers = true, hasToilets = true, hasDisabledAccess = true, isVirginCove = false),
+            snorkelRating = 3.9f,
+            snorkelDescription = "El muro del espigón portuario atrae bancos de pequeños peces, sepias y cangrejos.",
+            marineLifeHighlights = listOf("Sepias", "Sargos", "Lisas", "Chirlas"),
+            waterSports = listOf(WaterSport.PADDLE_SURF, WaterSport.SWIMMING, WaterSport.KAYAK),
+            photos = listOf(
+                BeachPhoto("Las Marinicas", "Aguas mansas protegidas por el dique", R.drawable.almeria_cabo_gata_1787596760956)
+            ),
+            mainPhotoResId = R.drawable.almeria_cabo_gata_1787596760956
+        ),
+
+        Beach(
+            id = "playa_marina_de_la_torre",
+            name = "Playa Marina de la Torre",
+            zone = Zone.LEVANTE_ALMERIENSE,
+            municipality = "Mojácar",
+            summary = "Playa moderna con Bandera Azul, campo de golf anexo y escuelas de deportes náuticos.",
+            description = "En el límite norte de Mojácar, lindando con Garrucha. Cuenta con un paseo marítimo ajardinado, excelentes accesos y una de las ofertas más completas para el ocio activo en el mar.",
+            sandType = "Arena media y grava fina",
+            lengthMeters = 1900,
+            widthMeters = 35,
+            orientation = Orientation.EAST,
+            latitude = 37.1556,
+            longitude = -1.8250,
+            isNaturalPark = false,
+            isNudistFriendly = false,
+            isPetFriendly = false,
+            isFamilyFriendly = true,
+            accessDifficulty = AccessDifficulty.EASY,
+            parkingInfo = "Aparcamiento organizado a lo largo de las urbanizaciones de Marina de la Torre.",
+            services = BeachServices(hasLifeguard = true, hasChiringuito = true, hasShowers = true, hasToilets = true, hasDisabledAccess = true, hasSunbedRental = true, isVirginCove = false),
+            snorkelRating = 3.8f,
+            snorkelDescription = "Fondos limpios con pequeños arrecifes artificiales y zonas de arena suave.",
+            marineLifeHighlights = listOf("Herreras", "Doradas", "Sargos", "Peces planos"),
+            waterSports = listOf(WaterSport.WINDSURF_KITE, WaterSport.PADDLE_SURF, WaterSport.SWIMMING),
+            photos = listOf(
+                BeachPhoto("Marina de la Torre", "Costa abierta y paseo ajardinado", R.drawable.almeria_cabo_gata_1787596760956)
+            ),
+            mainPhotoResId = R.drawable.almeria_cabo_gata_1787596760956
+        ),
+
+        Beach(
+            id = "cala_cristal",
+            name = "Cala Cristal",
+            zone = Zone.LEVANTE_ALMERIENSE,
+            municipality = "Cuevas del Almanzora",
+            summary = "Cala virgen escondida entre acantilados de roca rojiza con aguas de transparencia cristalina.",
+            description = "Una joya poco transitada de la costa de Cuevas del Almanzora. Sus aguas cristalinas de fondo mixto ofrecen una tranquilidad difícil de encontrar en el Levante almeriense.",
+            sandType = "Grava fina y arena dorada",
+            lengthMeters = 160,
+            widthMeters = 15,
+            orientation = Orientation.EAST,
+            latitude = 37.2650,
+            longitude = -1.7450,
+            isNaturalPark = false,
+            isNudistFriendly = true,
+            isPetFriendly = false,
+            isFamilyFriendly = false,
+            accessDifficulty = AccessDifficulty.MODERATE,
+            parkingInfo = "Acceso por pista desde la carretera costera hacia Pozo del Esparto. Estacionamiento en tierra.",
+            services = BeachServices(isVirginCove = true),
+            snorkelRating = 4.7f,
+            snorkelDescription = "Excelente visibilidad con paredes rocosas submarinas habitadas por tordos, pulpos y bancos de castañuelas.",
+            marineLifeHighlights = listOf("Pez verde", "Pulpos", "Doncellas", "Castañuelas", "Erizos de mar"),
+            waterSports = listOf(WaterSport.SNORKEL, WaterSport.DIVING, WaterSport.PADDLE_SURF),
+            photos = listOf(
+                BeachPhoto("Cala Cristal", "Acantilados rojizos y mar transparente", R.drawable.almeria_snorkel_1787596773919)
+            ),
+            mainPhotoResId = R.drawable.almeria_snorkel_1787596773919
+        ),
+
+        // ================= BAHÍA DE ALMERÍA (NUEVAS ADICIONES) =================
+        Beach(
+            id = "playa_costacabana",
+            name = "Playa de Costacabana",
+            zone = Zone.ALMERIA_CAPITAL,
+            municipality = "Almería Capital",
+            summary = "Serie de calas protegidas por espigones en el barrio marinero de Costacabana.",
+            description = "Los espigones costeros construidos en Costacabana han formado encantadoras calitas semicirculares resguardadas que facilitan un baño apacible y vistas a toda la Bahía de Almería.",
+            sandType = "Arena media y gravilla",
+            lengthMeters = 1200,
+            widthMeters = 30,
+            orientation = Orientation.SOUTH,
+            latitude = 36.8361,
+            longitude = -2.3833,
+            isNaturalPark = false,
+            isNudistFriendly = false,
+            isPetFriendly = false,
+            isFamilyFriendly = true,
+            accessDifficulty = AccessDifficulty.EASY,
+            parkingInfo = "Aparcamientos libres a lo largo del paseo marítimo de Costacabana.",
+            services = BeachServices(hasLifeguard = true, hasChiringuito = true, hasShowers = true, isVirginCove = false),
+            snorkelRating = 3.8f,
+            snorkelDescription = "Los espigones de roca albergan densas poblaciones de sargos, gobios y pulpos en sus grietas.",
+            marineLifeHighlights = listOf("Sargos", "Gobios", "Pulpos pequeños", "Castañuelas"),
+            waterSports = listOf(WaterSport.SWIMMING, WaterSport.PADDLE_SURF, WaterSport.KAYAK),
+            photos = listOf(
+                BeachPhoto("Calas de Costacabana", "Espigones y vista a la bahía", R.drawable.almeria_cabo_gata_1787596760956)
+            ),
+            mainPhotoResId = R.drawable.almeria_cabo_gata_1787596760956
+        ),
+
+        Beach(
+            id = "playa_el_toyo",
+            name = "Playa de El Toyo / Retamar",
+            zone = Zone.ALMERIA_CAPITAL,
+            municipality = "Almería (Retamar-El Toyo)",
+            summary = "Extensa playa con paseo marítimo de madera en la antesala natural de Cabo de Gata.",
+            description = "Integrada en la urbanización ecológica de El Toyo, creada para los Juegos Mediterráneos de 2005. Cuenta con pasarelas de madera, zonas verdes y acceso directo al parque natural.",
+            sandType = "Arena fina y grava suave",
+            lengthMeters = 2400,
+            widthMeters = 45,
+            orientation = Orientation.SOUTH_WEST,
+            latitude = 36.8333,
+            longitude = -2.3167,
+            isNaturalPark = false,
+            isNudistFriendly = false,
+            isPetFriendly = false,
+            isFamilyFriendly = true,
+            accessDifficulty = AccessDifficulty.EASY,
+            parkingInfo = "Grandes bolsas de aparcamiento en la plaza del Mar y paseo de El Toyo.",
+            services = BeachServices(hasLifeguard = true, hasChiringuito = true, hasShowers = true, hasToilets = true, hasDisabledAccess = true, hasSunbedRental = true, isVirginCove = false),
+            snorkelRating = 4.1f,
+            snorkelDescription = "Praderas de posidonia que comienzan a pocos metros de la costa con abundante vida de peces costeros.",
+            marineLifeHighlights = listOf("Herreras", "Doradas", "Salemas", "Pez aguja"),
+            waterSports = listOf(WaterSport.PADDLE_SURF, WaterSport.WINDSURF_KITE, WaterSport.SWIMMING),
+            photos = listOf(
+                BeachPhoto("El Toyo", "Paseo marítimo de madera y playa abierta", R.drawable.almeria_cabo_gata_1787596760956)
+            ),
+            mainPhotoResId = R.drawable.almeria_cabo_gata_1787596760956
+        ),
+
+        Beach(
+            id = "playa_almadraba_monteleva",
+            name = "Playa de la Almadraba de Monteleva",
+            zone = Zone.ALMERIA_CAPITAL,
+            municipality = "Almería (Cabo de Gata)",
+            summary = "Pueblo marinero con barcas tradicionales en la arena frente a las salinas y flamencos.",
+            description = "Estampa costera auténtica y nostálgica. Las barquitas de pesca artesanal descansan en la orilla junto a las casas bajas de pescadores, con la laguna de salinas y la iglesia histórica al fondo.",
+            sandType = "Arena fina dorada y grava media",
+            lengthMeters = 750,
+            widthMeters = 35,
+            orientation = Orientation.SOUTH_WEST,
+            latitude = 36.7667,
+            longitude = -2.2222,
+            isNaturalPark = true,
+            isNudistFriendly = false,
+            isPetFriendly = false,
+            isFamilyFriendly = true,
+            accessDifficulty = AccessDifficulty.EASY,
+            parkingInfo = "Aparcamiento en las calles del poblado de La Almadraba.",
+            services = BeachServices(hasChiringuito = true, isVirginCove = false),
+            snorkelRating = 4.3f,
+            snorkelDescription = "Fondos limpios con presencia de sepias y bancos de peces costeros resguardados con viento de Levante.",
+            marineLifeHighlights = listOf("Sepias", "Herreras", "Doradas", "Mubles"),
+            waterSports = listOf(WaterSport.PADDLE_SURF, WaterSport.KAYAK, WaterSport.SWIMMING),
+            photos = listOf(
+                BeachPhoto("La Almadraba", "Barcas de pesca y calma chicha", R.drawable.img_las_salinas_1789499254061)
+            ),
+            mainPhotoResId = R.drawable.img_las_salinas_1789499254061
+        ),
+
+        Beach(
+            id = "playa_san_telmo",
+            name = "Cala de San Telmo / Las Olas",
+            zone = Zone.ALMERIA_CAPITAL,
+            municipality = "Almería Capital",
+            summary = "Histórica cala al pie del Faro de San Telmo y los acantilados de Bayyana.",
+            description = "Ubicada en la salida occidental de la capital almeriense hacia Poniente. Sus acantilados calcáreos y el faro sobre la roca ofrecen un paisaje vertical sorprendente frente al mar.",
+            sandType = "Grava y cantos rodados",
+            lengthMeters = 200,
+            widthMeters = 15,
+            orientation = Orientation.SOUTH_EAST,
+            latitude = 36.8250,
+            longitude = -2.4833,
+            isNaturalPark = false,
+            isNudistFriendly = true,
+            isPetFriendly = false,
+            isFamilyFriendly = false,
+            accessDifficulty = AccessDifficulty.MODERATE,
+            parkingInfo = "Aparcamiento en el antiguo mirador de la N-340a, bajada peatonal por escaleras.",
+            services = BeachServices(isVirginCove = true),
+            snorkelRating = 4.4f,
+            snorkelDescription = "Fondos rocosos profundos con desniveles pronunciados, pulpos y peces de roca.",
+            marineLifeHighlights = listOf("Pulpos", "Cabrillas", "Sargos de roca", "Doncellas"),
+            waterSports = listOf(WaterSport.SNORKEL, WaterSport.DIVING),
+            photos = listOf(
+                BeachPhoto("San Telmo", "Acantilados y faro sobre el mar", R.drawable.almeria_cabo_gata_1787596760956)
+            ),
+            mainPhotoResId = R.drawable.almeria_cabo_gata_1787596760956
+        ),
+
+        // ================= PONIENTE ALMERIENSE (NUEVAS ADICIONES) =================
+        Beach(
+            id = "playa_romanilla",
+            name = "Playa de la Romanilla",
+            zone = Zone.PONIENTE_ALMERIENSE,
+            municipality = "Roquetas de Mar",
+            summary = "Playa céntrica entre el Castillo de Santa Ana y el puerto pesquero con Bandera Azul.",
+            description = "Una de las playas más queridas de Roquetas de Mar. Paseo marítimo animado repleto de palmeras, carril bici y el histórico Castillo de Santa Ana con sus jardines y exposiciones culturales.",
+            sandType = "Arena media y grava suave",
+            lengthMeters = 1300,
+            widthMeters = 50,
+            orientation = Orientation.EAST,
+            latitude = 36.7667,
+            longitude = -2.6083,
+            isNaturalPark = false,
+            isNudistFriendly = false,
+            isPetFriendly = false,
+            isFamilyFriendly = true,
+            accessDifficulty = AccessDifficulty.EASY,
+            parkingInfo = "Aparcamiento subterráneo y en superficie junto al Castillo de Santa Ana.",
+            services = BeachServices(hasLifeguard = true, hasChiringuito = true, hasShowers = true, hasToilets = true, hasDisabledAccess = true, hasSunbedRental = true, isVirginCove = false),
+            snorkelRating = 3.7f,
+            snorkelDescription = "Las escolleras bajo el castillo de Santa Ana concentran peces de escollera y cangrejos.",
+            marineLifeHighlights = listOf("Sargos", "Lisas", "Doncellas", "Cangrejos moros"),
+            waterSports = listOf(WaterSport.PADDLE_SURF, WaterSport.SWIMMING),
+            photos = listOf(
+                BeachPhoto("La Romanilla", "Castillo de Santa Ana y palmeras", R.drawable.almeria_cabo_gata_1787596760956)
+            ),
+            mainPhotoResId = R.drawable.almeria_cabo_gata_1787596760956
+        ),
+
+        Beach(
+            id = "playa_bajadilla",
+            name = "Playa de la Bajadilla",
+            zone = Zone.PONIENTE_ALMERIENSE,
+            municipality = "Roquetas de Mar",
+            summary = "Playa emblemática junto al Faro de Roquetas y la lonja tradicional de pescado.",
+            description = "Une el puerto pesquero con la urbanización de Roquetas. Sus aguas limpias y tranquilas disfrutan de la protección del saliente del faro, siendo un destino preferente para familias.",
+            sandType = "Arena media dorada",
+            lengthMeters = 1500,
+            widthMeters = 60,
+            orientation = Orientation.EAST,
+            latitude = 36.7556,
+            longitude = -2.6139,
+            isNaturalPark = false,
+            isNudistFriendly = false,
+            isPetFriendly = false,
+            isFamilyFriendly = true,
+            accessDifficulty = AccessDifficulty.EASY,
+            parkingInfo = "Plazas libres a lo largo del paseo marítimo de la Bajadilla.",
+            services = BeachServices(hasLifeguard = true, hasChiringuito = true, hasShowers = true, hasToilets = true, hasDisabledAccess = true, hasSunbedRental = true, isVirginCove = false),
+            snorkelRating = 3.9f,
+            snorkelDescription = "Fondos mixtos de arena y losas submarinas con buena presencia de peces costeros.",
+            marineLifeHighlights = listOf("Herreras", "Doradas", "Sargos", "Salemas"),
+            waterSports = listOf(WaterSport.PADDLE_SURF, WaterSport.KAYAK, WaterSport.SWIMMING),
+            photos = listOf(
+                BeachPhoto("La Bajadilla", "Faro de Roquetas y playa dorada", R.drawable.almeria_cabo_gata_1787596760956)
+            ),
+            mainPhotoResId = R.drawable.almeria_cabo_gata_1787596760956
+        ),
+
+        Beach(
+            id = "playa_almerimar",
+            name = "Playa de Poniente de Almerimar",
+            zone = Zone.PONIENTE_ALMERIENSE,
+            municipality = "El Ejido (Almerimar)",
+            summary = "La meca del windsurf y kitesurf en Almería, kilométrica playa abierta con viento constante.",
+            description = "Famosa en todo el circuito europeo de deportes acuáticos. Cuenta con centro náutico, escuelas homologadas de windsurf y kitesurf, y kilómetros de arena abierta donde disfrutar de la brisa marina.",
+            sandType = "Arena media y grava fina",
+            lengthMeters = 2000,
+            widthMeters = 70,
+            orientation = Orientation.SOUTH_WEST,
+            latitude = 36.6972,
+            longitude = -2.8028,
+            isNaturalPark = false,
+            isNudistFriendly = false,
+            isPetFriendly = false,
+            isFamilyFriendly = true,
+            accessDifficulty = AccessDifficulty.EASY,
+            parkingInfo = "Grandes explanadas de estacionamiento junto a las escuelas de vela de Almerimar.",
+            services = BeachServices(hasLifeguard = true, hasChiringuito = true, hasShowers = true, hasToilets = true, hasDisabledAccess = true, hasSunbedRental = true, isVirginCove = false),
+            snorkelRating = 3.8f,
+            snorkelDescription = "Fondos limpios de cascajo y arena con lenguas de posidonia alejadas de la orilla.",
+            marineLifeHighlights = listOf("Peces planos", "Herreras", "Bancos de sardinas"),
+            waterSports = listOf(WaterSport.WINDSURF_KITE, WaterSport.PADDLE_SURF, WaterSport.SWIMMING),
+            photos = listOf(
+                BeachPhoto("Almerimar Poniente", "Viento, kitesurf y playa infinita", R.drawable.almeria_cabo_gata_1787596760956)
+            ),
+            mainPhotoResId = R.drawable.almeria_cabo_gata_1787596760956
+        ),
+
+        Beach(
+            id = "playa_balerma",
+            name = "Playa de Balerma",
+            zone = Zone.PONIENTE_ALMERIENSE,
+            municipality = "El Ejido (Balerma)",
+            summary = "Poblado pescador con torre vigía del siglo XVIII y auténtico sabor andaluz.",
+            description = "Conserva la tranquilidad de los pueblos costeros de antaño. Su paseo marítimo culmina en la imponente Torre de Balerma y ofrece excelentes atardeceres sobre el mar de Poniente.",
+            sandType = "Arena oscura y grava fina",
+            lengthMeters = 2050,
+            widthMeters = 40,
+            orientation = Orientation.SOUTH_WEST,
+            latitude = 36.7278,
+            longitude = -2.8889,
+            isNaturalPark = false,
+            isNudistFriendly = false,
+            isPetFriendly = false,
+            isFamilyFriendly = true,
+            accessDifficulty = AccessDifficulty.EASY,
+            parkingInfo = "Aparcamiento urbano en las calles paralelas al paseo marítimo.",
+            services = BeachServices(hasLifeguard = true, hasChiringuito = true, hasShowers = true, hasToilets = true, isVirginCove = false),
+            snorkelRating = 3.7f,
+            snorkelDescription = "Fondos arenosos llanos con pequeños bancos de peces costeros y conchas marinas.",
+            marineLifeHighlights = listOf("Herreras", "Lisas", "Doradas"),
+            waterSports = listOf(WaterSport.SWIMMING, WaterSport.PADDLE_SURF),
+            photos = listOf(
+                BeachPhoto("Playa de Balerma", "Torre vigía y costa serena", R.drawable.almeria_cabo_gata_1787596760956)
+            ),
+            mainPhotoResId = R.drawable.almeria_cabo_gata_1787596760956
+        ),
+
+        Beach(
+            id = "playa_guardias_viejas",
+            name = "Playa de Guardias Viejas",
+            zone = Zone.PONIENTE_ALMERIENSE,
+            municipality = "El Ejido (Guardias Viejas)",
+            summary = "Playa salvaje bajo el Castillo de Guardias Viejas con arrecifes de roca y olas para surf.",
+            description = "Frente a la fortaleza costera del siglo XVIII que albergaba baterías de artillería. Zona de gran interés histórico y biológico con fondos de roca submarina y praderas de vegetación marina.",
+            sandType = "Arena media y losas rocosas",
+            lengthMeters = 1800,
+            widthMeters = 35,
+            orientation = Orientation.SOUTH_WEST,
+            latitude = 36.7000,
+            longitude = -2.8500,
+            isNaturalPark = false,
+            isNudistFriendly = true,
+            isPetFriendly = false,
+            isFamilyFriendly = true,
+            accessDifficulty = AccessDifficulty.EASY,
+            parkingInfo = "Aparcamiento libre en la explanada del Castillo de Guardias Viejas.",
+            services = BeachServices(hasChiringuito = true, isVirginCove = true),
+            snorkelRating = 4.2f,
+            snorkelDescription = "Losas rocosas submarinas que cobijan meros jóvenes, corvinas y pulpos.",
+            marineLifeHighlights = listOf("Pulpos", "Corvinas", "Sargos de roca", "Doncellas"),
+            waterSports = listOf(WaterSport.WINDSURF_KITE, WaterSport.SNORKEL, WaterSport.SWIMMING),
+            photos = listOf(
+                BeachPhoto("Guardias Viejas", "Castillo sobre el mar y arrecifes", R.drawable.almeria_monsul_dune_1787596792910)
+            ),
+            mainPhotoResId = R.drawable.almeria_monsul_dune_1787596792910
+        ),
+
+        Beach(
+            id = "playa_san_nicolas_adra",
+            name = "Playa de San Nicolás",
+            zone = Zone.PONIENTE_ALMERIENSE,
+            municipality = "Adra",
+            summary = "Playa con Bandera Azul en la milenaria ciudad fenicia de Adra, con paseo marítimo ajardinado.",
+            description = "Ubicada en el extremo poniente de la provincia de Almería. Cuenta con aguas limpias, un amplio paseo marítimo con palmeras y esculturas marinas, y fácil acceso a la rica gastronomía marinera de Adra.",
+            sandType = "Arena oscura media y grava fina",
+            lengthMeters = 1200,
+            widthMeters = 45,
+            orientation = Orientation.SOUTH,
+            latitude = 36.7444,
+            longitude = -3.0167,
+            isNaturalPark = false,
+            isNudistFriendly = false,
+            isPetFriendly = false,
+            isFamilyFriendly = true,
+            accessDifficulty = AccessDifficulty.EASY,
+            parkingInfo = "Aparcamientos libres a lo largo del paseo marítimo de San Nicolás.",
+            services = BeachServices(hasLifeguard = true, hasChiringuito = true, hasShowers = true, hasToilets = true, hasDisabledAccess = true, isVirginCove = false),
+            snorkelRating = 4.1f,
+            snorkelDescription = "Las escolleras y la cercanía al puerto pesquero propician una abundante presencia de peces litorales.",
+            marineLifeHighlights = listOf("Sargos comunes", "Doradas", "Castañuelas", "Doncellas", "Sepias"),
+            waterSports = listOf(WaterSport.SWIMMING, WaterSport.PADDLE_SURF, WaterSport.KAYAK),
+            photos = listOf(
+                BeachPhoto("Playa San Nicolás de Adra", "Paseo marítimo y aguas de Bandera Azul", R.drawable.almeria_cabo_gata_1787596760956)
             ),
             mainPhotoResId = R.drawable.almeria_cabo_gata_1787596760956
         )

@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.sp
 import com.example.data.model.*
 import com.example.ui.components.BeachCard
 import com.example.ui.components.FlagBadge
+import com.example.ui.components.ForecastDaySelector
 import com.example.ui.components.WeatherMarineCard
 import com.example.ui.components.WindAlertBanner
 import com.example.ui.components.WindAlertDetailSheet
@@ -40,6 +41,7 @@ import androidx.compose.ui.platform.LocalContext
 fun MarineForecastScreen(
     uiState: BeachUiState,
     getBathingAlert: (Beach) -> BathingSafetyAlert,
+    onDaySelected: (ForecastDay) -> Unit,
     onBeachClick: (Beach) -> Unit,
     onFavoriteToggle: (String) -> Unit,
     onRefresh: () -> Unit,
@@ -106,6 +108,36 @@ fun MarineForecastScreen(
                 )
             }
 
+            // 3-Day Forecast Day Selector (Hoy / Mañana / Pasado mañana)
+            item {
+                Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            text = "PREDICCIÓN DEL ESTADO DEL MAR",
+                            style = MaterialTheme.typography.labelMedium,
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.primary,
+                            letterSpacing = 0.5.sp
+                        )
+                        Text(
+                            text = uiState.selectedForecastDay.getDisplayDate(),
+                            style = MaterialTheme.typography.bodySmall,
+                            fontWeight = FontWeight.Medium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+
+                    ForecastDaySelector(
+                        selectedDay = uiState.selectedForecastDay,
+                        onDaySelected = onDaySelected
+                    )
+                }
+            }
+
             // Zone Selector Tabs
             item {
                 LazyRow(
@@ -132,6 +164,16 @@ fun MarineForecastScreen(
                     forecast = forecast,
                     isLoading = uiState.isLoadingForecast,
                     onRefreshClick = onRefresh
+                )
+            }
+
+            // Multi-Day Forecast Timeline / Evolution Card for Selected Zone
+            item {
+                MultiDayEvolutionCard(
+                    zone = selectedZone,
+                    multiDayMap = uiState.multiDayMarineForecasts[selectedZone] ?: emptyMap(),
+                    selectedDay = uiState.selectedForecastDay,
+                    onDaySelected = onDaySelected
                 )
             }
 
@@ -163,8 +205,8 @@ fun MarineForecastScreen(
             // Section: Best Beaches Today (Protected from current wind)
             item {
                 SectionHeader(
-                    title = "🛡️ Playas Recomendadas Hoy en ${selectedZone.displayName}",
-                    subtitle = "Resguardadas del viento actual con mar en calma",
+                    title = "🛡️ Playas Recomendadas (${uiState.selectedForecastDay.title}) en ${selectedZone.displayName}",
+                    subtitle = "Resguardadas del viento con mar en calma",
                     count = protectedBeaches.size,
                     accentColor = FlagGreen
                 )
@@ -173,7 +215,7 @@ fun MarineForecastScreen(
             if (protectedBeaches.isEmpty()) {
                 item {
                     Text(
-                        text = "No se encontraron playas resguardadas en esta zona para las condiciones actuales.",
+                        text = "No se encontraron playas resguardadas en esta zona para las condiciones seleccionadas.",
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         modifier = Modifier.padding(vertical = 8.dp)
@@ -196,7 +238,7 @@ fun MarineForecastScreen(
                 item {
                     Spacer(modifier = Modifier.height(8.dp))
                     SectionHeader(
-                        title = "⚠️ Playas con Oleaje o Viento Directo",
+                        title = "⚠️ Playas con Oleaje o Viento Directo (${uiState.selectedForecastDay.title})",
                         subtitle = "Bañarse con precaución o evitar deportes como snorkel",
                         count = exposedBeaches.size,
                         accentColor = FlagYellow
@@ -499,3 +541,135 @@ fun CoastalTipsCard() {
         }
     }
 }
+
+@Composable
+fun MultiDayEvolutionCard(
+    zone: Zone,
+    multiDayMap: Map<ForecastDay, MarineForecast>,
+    selectedDay: ForecastDay,
+    onDaySelected: (ForecastDay) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Card(
+        modifier = modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(18.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.6f))
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.DateRange,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(20.dp)
+                    )
+                    Text(
+                        text = "Evolución a 3 Días • ${zone.displayName}",
+                        style = MaterialTheme.typography.titleSmall,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+                Text(
+                    text = "Toca para ver",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.primary,
+                    fontSize = 11.sp
+                )
+            }
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                ForecastDay.values().forEach { day ->
+                    val forecast = multiDayMap[day]
+                    val isSelected = day == selectedDay
+
+                    Surface(
+                        shape = RoundedCornerShape(14.dp),
+                        color = if (isSelected) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
+                        border = if (isSelected) androidx.compose.foundation.BorderStroke(1.5.dp, MaterialTheme.colorScheme.primary) else null,
+                        modifier = Modifier
+                            .weight(1f)
+                            .clickable { onDaySelected(day) }
+                    ) {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 10.dp, horizontal = 6.dp),
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.spacedBy(4.dp)
+                        ) {
+                            Text(
+                                text = day.title,
+                                style = MaterialTheme.typography.labelMedium,
+                                fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
+                                color = if (isSelected) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onSurface
+                            )
+                            Text(
+                                text = day.getDisplayDate(),
+                                fontSize = 10.sp,
+                                color = if (isSelected) MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f) else MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+
+                            Spacer(modifier = Modifier.height(2.dp))
+
+                            if (forecast != null) {
+                                val isLevante = forecast.currentWindType == WindType.LEVANTE
+                                val badgeBg = if (isLevante) WindLevante else WindPoniente
+
+                                Box(
+                                    modifier = Modifier
+                                        .clip(RoundedCornerShape(6.dp))
+                                        .background(badgeBg)
+                                        .padding(horizontal = 6.dp, vertical = 2.dp)
+                                ) {
+                                    Text(
+                                        text = forecast.currentWindType.label,
+                                        fontSize = 9.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = Color.White
+                                    )
+                                }
+
+                                Text(
+                                    text = "${forecast.windSpeedKmh} km/h",
+                                    fontSize = 11.sp,
+                                    fontWeight = FontWeight.SemiBold,
+                                    color = if (isSelected) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onSurface
+                                )
+
+                                Text(
+                                    text = "🌊 ~${String.format("%.1f", forecast.waveHeightMeters)}m",
+                                    fontSize = 11.sp,
+                                    color = if (isSelected) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+
+                                Text(
+                                    text = "🌡️ ${forecast.waterTemperatureCelsius.toInt()}°C",
+                                    fontSize = 10.sp,
+                                    color = if (isSelected) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

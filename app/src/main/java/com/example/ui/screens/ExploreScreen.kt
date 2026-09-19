@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.data.model.*
 import com.example.ui.components.BeachCard
+import com.example.ui.components.ForecastDaySelector
 import com.example.ui.components.WindAlertBanner
 import com.example.ui.components.WindAlertDetailSheet
 import com.example.ui.theme.*
@@ -34,6 +35,7 @@ import com.example.util.WindAlertSeverity
 fun ExploreScreen(
     uiState: BeachUiState,
     getBathingAlert: (Beach) -> BathingSafetyAlert,
+    onDaySelected: (ForecastDay) -> Unit,
     onSearchQueryChange: (String) -> Unit,
     onZoneSelected: (Zone?) -> Unit,
     onToggleTopSnorkel: () -> Unit,
@@ -169,6 +171,41 @@ fun ExploreScreen(
                     ),
                     singleLine = true
                 )
+            }
+
+            // 3-Day Forecast Day Selector (Hoy / Mañana / Pasado mañana)
+            item {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                    verticalArrangement = Arrangement.spacedBy(6.dp)
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            text = "PREDICCIÓN DEL ESTADO DEL MAR",
+                            style = MaterialTheme.typography.labelMedium,
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.primary,
+                            letterSpacing = 0.5.sp
+                        )
+                        Text(
+                            text = uiState.selectedForecastDay.getDisplayDate(),
+                            style = MaterialTheme.typography.bodySmall,
+                            fontWeight = FontWeight.Medium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+
+                    ForecastDaySelector(
+                        selectedDay = uiState.selectedForecastDay,
+                        onDaySelected = onDaySelected
+                    )
+                }
             }
 
             // Zone Selection Chips

@@ -57,32 +57,11 @@ fun BeachCard(
                     .fillMaxWidth()
                     .height(180.dp)
             ) {
-                if (beach.mainPhotoResId != null) {
-                    Image(
-                        painter = painterResource(id = beach.mainPhotoResId),
-                        contentDescription = beach.name,
-                        modifier = Modifier.fillMaxSize(),
-                        contentScale = ContentScale.Crop
-                    )
-                } else {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .background(
-                                Brush.verticalGradient(
-                                    listOf(MarineOceanPrimary, MarineOceanDark)
-                                )
-                            ),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.BeachAccess,
-                            contentDescription = null,
-                            tint = Color.White.copy(alpha = 0.6f),
-                            modifier = Modifier.size(48.dp)
-                        )
-                    }
-                }
+                BeachImageView(
+                    beach = beach,
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.Crop
+                )
 
                 // Smooth gradient scrim for optimal text contrast
                 Box(

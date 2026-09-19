@@ -2,21 +2,78 @@ package com.example.data.repository
 
 import com.example.data.local.BeachDao
 import com.example.data.local.BeachDataProvider
+import com.example.data.local.BeachEntity
+import com.example.data.local.BeachInfoDao
 import com.example.data.local.FavoriteBeachEntity
+import com.example.data.local.toEntity
 import com.example.data.model.*
 import com.example.data.remote.MarineWeatherService
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 
 class BeachRepository(
     private val beachDao: BeachDao,
-    private val marineService: MarineWeatherService
+    private val marineService: MarineWeatherService,
+    private val beachInfoDao: BeachInfoDao? = null
 ) {
     private val allBeaches = BeachDataProvider.getAllBeaches()
 
     fun getAllBeaches(): List<Beach> = allBeaches
 
     fun getBeachById(id: String): Beach? = allBeaches.find { it.id == id }
+
+    // ================= Room Beach Entity Operations =================
+
+    /**
+     * Reactive stream of all beach entities from Room database.
+     */
+    fun getAllBeachEntities(): Flow<List<BeachEntity>> {
+        return beachInfoDao?.getAllBeaches() ?: flowOf(emptyList())
+    }
+
+    /**
+     * Reactive stream of beach entities suitable for snorkeling from Room.
+     */
+    fun getSnorkelingBeachesFromDb(): Flow<List<BeachEntity>> {
+        return beachInfoDao?.getBeachesSuitableForSnorkeling() ?: flowOf(emptyList())
+    }
+
+    /**
+     * Retrieve beaches matching a location query from Room.
+     */
+    fun getBeachesByLocationFromDb(query: String): Flow<List<BeachEntity>> {
+        return beachInfoDao?.getBeachesByLocation(query) ?: flowOf(emptyList())
+    }
+
+    /**
+     * Retrieve single beach entity by ID from Room.
+     */
+    fun getBeachEntityById(beachId: String): Flow<BeachEntity?> {
+        return beachInfoDao?.getBeachById(beachId) ?: flowOf(null)
+    }
+
+    /**
+     * Seeds the Room beach table with initial Almería beach data if empty.
+     */
+    suspend fun seedBeachesIfEmpty() {
+        if (beachInfoDao != null) {
+            val count = beachInfoDao.getBeachCount()
+            if (count < allBeaches.size) {
+                val entities = allBeaches.map { it.toEntity() }
+                beachInfoDao.insertBeaches(entities)
+            }
+        }
+    }
+
+    /**
+     * Insert or update a beach entity in Room.
+     */
+    suspend fun insertBeachEntity(entity: BeachEntity) {
+        beachInfoDao?.insertBeach(entity)
+    }
+
+    // ================= Favorites & User Notes =================
 
     fun getFavorites(): Flow<List<Beach>> {
         return beachDao.getFavorites().map { entities ->
@@ -81,6 +138,10 @@ class BeachRepository(
 
     suspend fun fetchMarineForecast(zone: Zone): MarineForecast {
         return marineService.fetchMarineForecastForZone(zone)
+    }
+
+    suspend fun fetchMultiDayMarineForecast(zone: Zone): Map<ForecastDay, MarineForecast> {
+        return marineService.fetchMultiDayMarineForecastForZone(zone)
     }
 
     fun calculateBathingSafety(beach: Beach, forecast: MarineForecast): BathingSafetyAlert {
@@ -188,7 +249,8 @@ class BeachRepository(
             isProtectedFromCurrentWind = isProtected,
             waveHeightEstimated = waveHeight,
             snorkelQualityToday = snorkelQuality,
-            windAdvice = windAdvice
+            windAdvice = windAdvice,
+            day = forecast.day
         )
     }
 }
